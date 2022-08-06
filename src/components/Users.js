@@ -55,7 +55,7 @@ export default function Users() {
                 user.username.toLowerCase().includes(search.toLowerCase())
               ) {
                 return user;
-              }
+              } else return false;
             })
             .sort((a, b) => short === (a.username < b.username ? 1 : -1))
             .map((user) => (
