@@ -57,9 +57,17 @@ export default function Users() {
                 return user;
               } else return false;
             })
-            .sort((a, b) =>
-              short ? a.username > b.username : a.username < b.username
-            )
+            .sort((a, b) => {
+              if (short) {
+                if (a.username > b.username) {
+                  return 1;
+                } else return -1;
+              } else {
+                if (a.username < b.username) {
+                  return 1;
+                } else return -1;
+              }
+            })
             .map((user) => (
               <p>{user.username}</p>
             ))}
