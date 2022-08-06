@@ -42,7 +42,7 @@ export default function Users() {
               <th>
                 <button onClick={(e) => changeText()}>
                   UserName
-                  {short ? "▼" : "▲"}
+                  {short ? "▲" : "▼"}
                 </button>
               </th>
             </thead>
