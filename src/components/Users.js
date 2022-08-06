@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Search from "./Search";
 export default function Users() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState("");
@@ -16,6 +15,7 @@ export default function Users() {
       setError("Error while getting users");
     }
   };
+  console.log(error);
 
   useEffect(() => {
     getData();
@@ -49,7 +49,7 @@ export default function Users() {
           </table>
           {users
             .filter((user) => {
-              if (search == "") {
+              if (search === "") {
                 return user;
               } else if (
                 user.username.toLowerCase().includes(search.toLowerCase())
@@ -57,7 +57,7 @@ export default function Users() {
                 return user;
               }
             })
-            .sort((a, b) => (short == a.username < b.username ? 1 : -1))
+            .sort((a, b) => short === (a.username < b.username ? 1 : -1))
             .map((user) => (
               <p>{user.username}</p>
             ))}
